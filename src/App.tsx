@@ -1,24 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+
+import "./App.css";
+import { Header } from "./components/Header";
+import { Body } from "./components/Body";
+
+export const tabNames = ["About", "Experience", "Contact", "Resume"];
 
 function App() {
+  const [selectedTab, setSelectedTab] = useState<number | null>(0);
+
+  const headerProps = { selectedTab, setSelectedTab };
+  const bodyProps = { selectedTab, setSelectedTab };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header {...headerProps} />
+      <Body {...bodyProps} />
     </div>
   );
 }
