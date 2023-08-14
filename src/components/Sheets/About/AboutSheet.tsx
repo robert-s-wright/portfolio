@@ -1,5 +1,3 @@
-import React from "react";
-
 import {
   Typography,
   Stack,
@@ -7,33 +5,26 @@ import {
   Paper,
   IconButton,
   Link,
+  Tooltip,
 } from "@mui/material";
 
 import headshot from "./../../../assets/headshot.jpg";
 
 import { theme } from "../../theme";
 
-import { SheetProps, StyledIconProps, SkillStackProps } from "../../Types";
+import { StyledIconProps, SkillStackProps } from "../../Types";
 
 import {
   frontendSkills,
   backendSkills,
   dataSkills,
   versionSkills,
+  contactLinks,
 } from "./AboutSheetData";
 
-export const AboutSheet = ({ tabName }: SheetProps) => {
+export const AboutSheet = () => {
   return (
-    <Stack sx={{ overflow: "hidden" }}>
-      <Typography
-        variant="h4"
-        fontFamily="Montserrat"
-        fontWeight={700}
-        mt={2}
-      >
-        {tabName}
-      </Typography>
-
+    <>
       <Stack
         padding={4}
         textAlign="justify"
@@ -123,8 +114,8 @@ export const AboutSheet = ({ tabName }: SheetProps) => {
             </Stack>
           </Stack>
           <Stack
-            // height="100%"
-            justifyContent="space-between"
+            justifyContent="flex-start"
+            alignItems="center"
           >
             <Typography
               variant="h6"
@@ -137,26 +128,17 @@ export const AboutSheet = ({ tabName }: SheetProps) => {
               alignItems="flex-start"
               gap={1}
             >
-              <Link
-                href="https://github.com/robert-s-wright"
-                target="_blank"
-                underline="hover"
-              >
-                Github
-              </Link>
-              <Link
-                href="https://linkedin.com/in/robertstephenwright"
-                target="_blank"
-                underline="hover"
-              >
-                LinkedIn
-              </Link>
-              <Link
-                href="mailto:rs.wrightdev@gmail.com"
-                underline="hover"
-              >
-                rs.wrightdev@gmail.com
-              </Link>
+              {contactLinks.map((obj) => {
+                return (
+                  <Link
+                    href={obj.link}
+                    target="_blank"
+                    underline="hover"
+                  >
+                    {obj.title}
+                  </Link>
+                );
+              })}
             </Stack>
           </Stack>
           <Avatar
@@ -169,28 +151,32 @@ export const AboutSheet = ({ tabName }: SheetProps) => {
           />
         </Stack>
       </Stack>
-    </Stack>
+    </>
   );
 };
 
-const StyledIcon = ({ Icon, link }: StyledIconProps) => {
+const StyledIcon = ({ Icon, link, skillName }: StyledIconProps) => {
   return (
-    <IconButton
-      children={<Icon size={35} />}
-      size="medium"
-      sx={{
-        "&.MuiIconButton-root:hover": {
-          backgroundColor: theme.palette.primary.light,
-          color: theme.palette.primary.dark,
-          opacity: "50%",
-        },
-        "&.MuiIconButton-root": {
-          color: theme.palette.secondary.light,
-          opacity: "60%",
-        },
-      }}
-      onClick={() => window.open(link, "_blank")}
-    />
+    <Tooltip
+      title={skillName}
+      placement="top"
+    >
+      <IconButton
+        children={<Icon size={30} />}
+        size="medium"
+        sx={{
+          "&.MuiIconButton-root:hover": {
+            backgroundColor: theme.palette.secondary.light,
+            opacity: "60%",
+          },
+          "&.MuiIconButton-root": {
+            color: theme.palette.secondary.dark,
+            opacity: "80%",
+          },
+        }}
+        onClick={() => window.open(link, "_blank")}
+      />
+    </Tooltip>
   );
 };
 
@@ -198,18 +184,18 @@ const SkillStack = ({ title, skillsArray }: SkillStackProps) => {
   return (
     <Stack alignItems="center">
       <Typography
-        fontFamily="Montserrat"
-        color={theme.palette.primary.dark}
         variant="h6"
+        fontWeight={600}
       >
         {title}
       </Typography>
       <Paper
         sx={{
-          backgroundColor: theme.palette.secondary.dark,
+          backgroundColor: "#F2F0EB",
           padding: 1,
         }}
-        elevation={10}
+        elevation={5}
+        square
       >
         <Stack alignItems="center">
           <Stack
@@ -222,8 +208,10 @@ const SkillStack = ({ title, skillsArray }: SkillStackProps) => {
             {skillsArray.map((skill) => {
               return (
                 <StyledIcon
+                  key={skill.link}
                   Icon={skill.Icon}
                   link={skill.link}
+                  skillName={skill.skillName}
                 />
               );
             })}

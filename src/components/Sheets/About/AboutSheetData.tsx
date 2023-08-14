@@ -1,4 +1,4 @@
-import { SkillStackProps } from "../../Types";
+import { SkillStackProps, ContactLinkProps } from "../../Types";
 
 import { SiCsharp, SiDotnet, SiMui } from "react-icons/si";
 import {
@@ -19,11 +19,17 @@ export const backendSkills: SkillStackProps = {
     {
       Icon: SiCsharp,
       link: "https://dotnet.microsoft.com/languages/csharp",
+      skillName: "C Sharp",
     },
-    { Icon: SiDotnet, link: "https://dotnet.microsoft.com/en-us/" },
+    {
+      Icon: SiDotnet,
+      link: "https://dotnet.microsoft.com/en-us/",
+      skillName: ".Net",
+    },
     {
       Icon: BiLogoNodejs,
       link: "https://nodejs.org",
+      skillName: "Node.JS",
     },
   ],
 };
@@ -34,26 +40,32 @@ export const frontendSkills: SkillStackProps = {
     {
       Icon: BiLogoHtml5,
       link: "https://html.com/html5/",
+      skillName: "HTML",
     },
     {
       Icon: BiLogoCss3,
       link: "https://developer.mozilla.org/docs/Web/CSS",
+      skillName: "CSS",
     },
     {
       Icon: BiLogoJavascript,
       link: "https://www.javascript.com/",
+      skillName: "Javascript",
     },
     {
       Icon: BiLogoTypescript,
       link: "https://www.typescriptlang.org/",
+      skillName: "Typescript",
     },
     {
       Icon: BiLogoReact,
       link: "https://react.dev/",
+      skillName: "React",
     },
     {
       Icon: SiMui,
       link: "https://mui.com/",
+      skillName: "Material UI",
     },
   ],
 };
@@ -64,8 +76,13 @@ export const dataSkills: SkillStackProps = {
     {
       Icon: TbSql,
       link: "https://www.microsoft.com/sql-server/",
+      skillName: "SQL",
     },
-    { Icon: BiLogoMongodb, link: "https://www.mongodb.com/" },
+    {
+      Icon: BiLogoMongodb,
+      link: "https://www.mongodb.com/",
+      skillName: "MongoDB",
+    },
   ],
 };
 
@@ -75,6 +92,13 @@ export const versionSkills: SkillStackProps = {
     {
       Icon: BiLogoGithub,
       link: "https://github.com/",
+      skillName: "GitHub",
     },
   ],
 };
+
+export const contactLinks: ContactLinkProps = [
+  { title: "GitHub", link: "https://github.com/robert-s-wright" },
+  { title: "LinkedIn", link: "https://linkedin.com/in/robertstephenwright" },
+  { title: "rs.wrightdev@gmail.com", link: "mailto:rs.wrightdev@gmail.com" },
+];

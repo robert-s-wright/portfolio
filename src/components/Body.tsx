@@ -1,24 +1,30 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-import { Slide, Paper } from "@mui/material";
+import { Slide, Paper, Stack } from "@mui/material";
 
 import style from "./Body.module.css";
 
 import { sheetNames } from "./Sheets/SheetNames";
 
 import { theme } from "./theme";
+import { SheetTitle } from "./Sheets/SheetTitle";
 
 type BodyProps = {
   selectedTab: number | null;
   setSelectedTab: React.Dispatch<React.SetStateAction<number | null>>;
+  headerRef: React.MutableRefObject<HTMLDivElement | null>;
 };
 
-export const Body = (props: BodyProps) => {
-  const { selectedTab } = props;
+export const Body = ({ selectedTab, setSelectedTab, headerRef }: BodyProps) => {
   return (
     <div
       className={style.container}
-      style={{ backgroundColor: theme.palette.secondary.dark }}
+      style={{
+        backgroundColor: theme.palette.secondary.dark,
+        position: "relative",
+        marginTop:
+          headerRef.current !== null ? headerRef.current.offsetHeight : 0,
+      }}
     >
       {sheetNames.map((sheetName, index) => {
         return (
@@ -48,8 +54,7 @@ const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
       in={value === index}
       direction="down"
       easing="cubic-bezier(0.3, 1.1, .5, 1)"
-      timeout={{ enter: 900, exit: 300, appear: 2000 }}
-      appear
+      timeout={{ enter: 900, exit: 300 }}
       unmountOnExit
     >
       <Paper
@@ -57,7 +62,6 @@ const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
           position: "relative",
           width: "100%",
           maxWidth: "1500px",
-
           "&.MuiPaper-root": {
             backgroundColor: "#F2F0EB",
           },
@@ -66,7 +70,13 @@ const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
         square
         elevation={5}
       >
-        <Component tabName={tabName} />
+        <Stack
+          alignItems="center"
+          sx={{ overflow: "hidden" }}
+        >
+          <SheetTitle tabName={tabName} />
+          <Component />
+        </Stack>
       </Paper>
     </Slide>
   );

@@ -13,15 +13,16 @@ export type SheetTitleProps = {
 
 export type StyledIconProps = {
   Icon: IconType;
-
   link: string;
+  skillName: string;
 };
 
 export type SkillStackProps = {
   title: string;
-
   skillsArray: StyledIconProps[];
 };
+
+export type ContactLinkProps = { title: string; link: string }[];
 
 //Experience Sheet
 
@@ -46,5 +47,3 @@ export type MoreInfoTileProps = ProjectProps & {
   hoveredProject?: number;
   index: number;
 };
-
-//Contact Sheet
