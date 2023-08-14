@@ -1,6 +1,13 @@
 import React from "react";
 
-import { Typography, Stack, Avatar, Paper, IconButton } from "@mui/material";
+import {
+  Typography,
+  Stack,
+  Avatar,
+  Paper,
+  IconButton,
+  Link,
+} from "@mui/material";
 
 import headshot from "./../../../assets/headshot.jpg";
 
@@ -102,17 +109,63 @@ export const AboutSheet = ({ tabName }: SheetProps) => {
           width="90%"
           alignItems="center"
         >
-          <Stack>
-            <SkillStack {...frontendSkills} />
-            <SkillStack {...backendSkills} />
+          <Stack
+            direction="row"
+            gap={5}
+          >
+            <Stack>
+              <SkillStack {...frontendSkills} />
+              <SkillStack {...backendSkills} />
+            </Stack>
+            <Stack>
+              <SkillStack {...dataSkills} />
+              <SkillStack {...versionSkills} />
+            </Stack>
           </Stack>
-          <Stack>
-            <SkillStack {...dataSkills} />
-            <SkillStack {...versionSkills} />
+          <Stack
+            // height="100%"
+            justifyContent="space-between"
+          >
+            <Typography
+              variant="h6"
+              fontFamily="Montserrat"
+              fontWeight={700}
+            >
+              Contact
+            </Typography>
+            <Stack
+              alignItems="flex-start"
+              gap={1}
+            >
+              <Link
+                href="https://github.com/robert-s-wright"
+                target="_blank"
+                underline="hover"
+              >
+                Github
+              </Link>
+              <Link
+                href="https://linkedin.com/in/robertstephenwright"
+                target="_blank"
+                underline="hover"
+              >
+                LinkedIn
+              </Link>
+              <Link
+                href="mailto:rs.wrightdev@gmail.com"
+                underline="hover"
+              >
+                rs.wrightdev@gmail.com
+              </Link>
+            </Stack>
           </Stack>
           <Avatar
             src={headshot}
-            sx={{ height: 150, width: 150, boxShadow: "1px 1px 5px black" }}
+            sx={{
+              height: 150,
+              width: 150,
+              boxShadow: "1px 1px 5px black",
+            }}
           />
         </Stack>
       </Stack>
@@ -132,8 +185,8 @@ const StyledIcon = ({ Icon, link }: StyledIconProps) => {
           opacity: "50%",
         },
         "&.MuiIconButton-root": {
-          color: theme.palette.primary.light,
-          opacity: "80%",
+          color: theme.palette.secondary.light,
+          opacity: "60%",
         },
       }}
       onClick={() => window.open(link, "_blank")}

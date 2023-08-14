@@ -9,7 +9,7 @@ export const theme = createTheme({
   transitions: {
     duration: {
       enteringScreen: 1000,
-      leavingScreen: 1000,
+      leavingScreen: 800,
     },
   },
 });

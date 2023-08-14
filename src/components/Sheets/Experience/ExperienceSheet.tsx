@@ -11,35 +11,38 @@ import {
 
 import { ProjectTile } from "./ProjectTile";
 
-import { SheetProps, ProjectTileProps } from "../../Types";
+import { SheetProps } from "../../Types";
+
+import { projects } from "./Projects";
+import { SheetTitle } from "../SheetTitle";
 
 export const ExperienceSheet = ({ tabName }: SheetProps) => {
-  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
+  const [hoveredProject, setHoveredProject] = useState<number | undefined>(
+    undefined
+  );
 
   return (
     <Stack sx={{ overflow: "hidden" }}>
-      <Typography
-        variant="h4"
-        fontFamily="Montserrat"
-        fontWeight={700}
-        mt={2}
-      >
-        {tabName}
-      </Typography>
+      <SheetTitle tabName={tabName} />
 
       <Stack
         padding={4}
         textAlign="justify"
         spacing={2}
+        justifyContent="space-evenly"
         alignItems="center"
         direction="row"
       >
-        <ProjectTile
-          title="hilti"
-          setHoverState={setHoveredProject}
-          hoveredProject={hoveredProject}
-          imgLink="./../../../assets/Experience/monthview.PNG"
-        />
+        {projects.map((project, ind) => {
+          return (
+            <ProjectTile
+              setHoverState={setHoveredProject}
+              hoveredProject={hoveredProject}
+              index={ind}
+              {...project}
+            />
+          );
+        })}
       </Stack>
     </Stack>
   );

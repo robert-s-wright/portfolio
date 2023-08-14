@@ -43,8 +43,6 @@ type TabPanelProps = {
 };
 
 const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
-  const tabColorIndex = value !== null ? value * 100 : 500;
-
   return (
     <Slide
       in={value === index}
@@ -58,6 +56,7 @@ const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
         sx={{
           position: "relative",
           width: "100%",
+          maxWidth: "1500px",
 
           "&.MuiPaper-root": {
             backgroundColor: "#F2F0EB",
@@ -67,10 +66,7 @@ const TabPanel = ({ tabName, value, index, Component }: TabPanelProps) => {
         square
         elevation={5}
       >
-        <Component
-          tabName={tabName}
-          sx={{ height: "100%" }}
-        />
+        <Component tabName={tabName} />
       </Paper>
     </Slide>
   );

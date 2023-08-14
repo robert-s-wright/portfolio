@@ -1,43 +1,42 @@
 import React from "react";
 
-import { Box, Slide } from "@mui/material";
+import { Box, Slide, Typography, Stack, Paper } from "@mui/material";
 
-import { ProjectTileProps } from "../../Types";
+import { ProjectTileProps, ProjectProps } from "../../Types";
+import { MoreInfoTile } from "./MoreInfoTile";
 
 export const ProjectTile = ({
-  title,
+  // title,
   setHoverState,
   hoveredProject,
   imgLink,
+  index,
+  ...project
 }: ProjectTileProps) => {
   return (
-    <Box
-      sx={{ maxWidth: "30%", position: "relative", overflow: "hidden" }}
-      onMouseEnter={() => setHoverState(title)}
-      onMouseLeave={() => setHoverState(null)}
+    <Paper
+      sx={{
+        height: "400px",
+        maxWidth: "525px",
+        width: "auto",
+        position: "relative",
+        overflow: "hidden",
+      }}
+      onMouseEnter={() => setHoverState(index)}
+      onMouseLeave={() => setHoverState(undefined)}
+      elevation={10}
+      square
     >
       <img
-        src={require("./../../../assets/Experience/monthview.PNG")}
-        width="100%"
-        style={{}}
-        // onMouseEnter={() => setHoveredProject("hilti")}
-        // onMouseLeave={() => setHoveredProject(null)}
+        src={imgLink}
+        height="100%"
+        style={{ position: "relative" }}
       />
-      <Slide
-        in={hoveredProject === title}
-        direction="right"
-      >
-        <Box
-          sx={{
-            position: "absolute",
-            height: "100%",
-            width: "100%",
-            backgroundColor: "red",
-            opacity: "50%",
-            top: 0,
-          }}
-        ></Box>
-      </Slide>
-    </Box>
+      <MoreInfoTile
+        hoveredProject={hoveredProject}
+        index={index}
+        {...project}
+      />
+    </Paper>
   );
 };

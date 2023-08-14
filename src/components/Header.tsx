@@ -2,6 +2,8 @@ import { Stack, Tabs, Tab, ThemeProvider } from "@mui/material";
 
 import { tabNames } from "../App";
 
+import { sheetNames } from "./Sheets/SheetNames";
+
 import { theme } from "./theme";
 
 type HeaderProps = {
@@ -43,11 +45,11 @@ export const Header = (props: HeaderProps) => {
               },
             }}
           >
-            {tabNames.map((tab, index) => {
+            {sheetNames.map((sheet, index) => {
               return (
                 <Tab
                   key={index}
-                  label={tab}
+                  label={sheet.tabName}
                   {...allyProps(index)}
                   style={{ color: theme.palette.secondary.light }}
                 />
