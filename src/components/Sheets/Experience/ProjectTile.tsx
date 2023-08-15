@@ -40,8 +40,6 @@ export const ProjectTile = ({
         elevation={10}
         square
       >
-        {/* <Stack > */}
-
         <Stack
           alignItems="center"
           justifyContent="space-between"
@@ -72,7 +70,6 @@ export const ProjectTile = ({
               return (
                 <img
                   src={imgLink}
-                  // width="90%"
                   style={{ width: "45%", aspectRatio: "auto" }}
                 />
               );
@@ -115,7 +112,6 @@ export const ProjectTile = ({
             })}
           </Stack>
         </Stack>
-        {/* </Stack> */}
       </Paper>
     </ThemeProvider>
   );
