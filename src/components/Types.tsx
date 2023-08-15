@@ -29,7 +29,7 @@ export type ContactLinkProps = { title: string; link: string }[];
 export type ProjectProps = {
   title: string;
   subTitle: string;
-  imgLink?: string;
+  imgLinks: string[];
   link?: string;
   frontendRepoLink?: string;
   backendRepoLink?: string;

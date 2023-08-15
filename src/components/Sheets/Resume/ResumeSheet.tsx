@@ -3,7 +3,7 @@ export const ResumeSheet = () => {
     <object
       data=".\assets\CV07082023.pdf"
       width="80%"
-      style={{ margin: "10px", height: "80vh", maxHeight: "1000px" }}
+      style={{ margin: "10px", minHeight: "70vh", maxHeight: "1000px" }}
     />
   );
 };

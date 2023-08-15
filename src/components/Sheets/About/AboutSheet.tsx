@@ -83,6 +83,15 @@ export const AboutSheet = () => {
           Please send me any questions or comments and I'll do my best to
           respond!
         </Typography>
+        <Typography
+          textAlign="center"
+          variant="subtitle1"
+          fontFamily="Montserrat"
+          fontStyle="italic"
+          fontWeight={700}
+        >
+          *Site under construction for better responsiveness!*
+        </Typography>
       </Stack>
       <Stack
         sx={{
@@ -104,11 +113,11 @@ export const AboutSheet = () => {
             direction="row"
             gap={5}
           >
-            <Stack>
+            <Stack rowGap={1}>
               <SkillStack {...frontendSkills} />
               <SkillStack {...backendSkills} />
             </Stack>
-            <Stack>
+            <Stack rowGap={1}>
               <SkillStack {...dataSkills} />
               <SkillStack {...versionSkills} />
             </Stack>
@@ -170,7 +179,7 @@ const StyledIcon = ({ Icon, link, skillName }: StyledIconProps) => {
             opacity: "60%",
           },
           "&.MuiIconButton-root": {
-            color: theme.palette.secondary.dark,
+            color: theme.palette.primary.dark,
             opacity: "80%",
           },
         }}
@@ -182,10 +191,14 @@ const StyledIcon = ({ Icon, link, skillName }: StyledIconProps) => {
 
 const SkillStack = ({ title, skillsArray }: SkillStackProps) => {
   return (
-    <Stack alignItems="center">
+    <Stack
+      alignItems="center"
+      gap={1}
+    >
       <Typography
         variant="h6"
         fontWeight={600}
+        fontFamily="Montserrat"
       >
         {title}
       </Typography>

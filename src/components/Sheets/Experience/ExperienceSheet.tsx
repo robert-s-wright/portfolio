@@ -16,9 +16,11 @@ export const ExperienceSheet = () => {
       padding={4}
       textAlign="justify"
       spacing={2}
+      rowGap={2}
       justifyContent="space-evenly"
-      alignItems="center"
-      direction="row"
+      alignItems={{ sm: "center", md: "flex-start" }}
+      direction={{ sm: "column", md: "row" }}
+      flexWrap="wrap"
     >
       {projects.map((project, ind) => {
         return (

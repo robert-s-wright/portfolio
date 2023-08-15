@@ -24,6 +24,7 @@ export const Body = ({ selectedTab, setSelectedTab, headerRef }: BodyProps) => {
         position: "relative",
         marginTop:
           headerRef.current !== null ? headerRef.current.offsetHeight : 0,
+        minHeight: "70%",
       }}
     >
       {sheetNames.map((sheetName, index) => {

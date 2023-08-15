@@ -29,7 +29,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
       <ThemeProvider theme={theme}>
         <Stack
           direction="row"
-          justifyContent="space-between"
+          justifyContent="flex-end"
           style={{
             backgroundColor: theme.palette.primary.dark,
             position: "fixed",
@@ -38,7 +38,7 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           zIndex={10}
           ref={ref}
         >
-          <div>Logo</div>
+          {/* <div>Logo</div> */}
           <Stack padding={1}>
             <Tabs
               onChange={handleChange}
@@ -60,7 +60,10 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                     key={index}
                     label={sheet.tabName}
                     {...allyProps(index)}
-                    style={{ color: theme.palette.secondary.light }}
+                    style={{
+                      color: theme.palette.secondary.light,
+                      fontFamily: "Montserrat",
+                    }}
                   />
                 );
               })}
