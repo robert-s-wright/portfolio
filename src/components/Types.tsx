@@ -11,6 +11,8 @@ export type SheetTitleProps = {
 
 //About Sheet
 
+export type aboutContentProps = string[];
+
 export type StyledIconProps = {
   Icon: IconType;
   link: string;

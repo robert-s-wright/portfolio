@@ -1,4 +1,8 @@
-import { SkillStackProps, ContactLinkProps } from "../../Types";
+import {
+  SkillStackProps,
+  ContactLinkProps,
+  aboutContentProps,
+} from "../../Types";
 
 import { SiCsharp, SiDotnet, SiMui } from "react-icons/si";
 import {
@@ -12,6 +16,13 @@ import {
   BiLogoTypescript,
 } from "react-icons/bi";
 import { TbSql } from "react-icons/tb";
+
+export const aboutContent: aboutContentProps = [
+  "I'm Robbie, a 34 year old web developer with an emphasis on React with Javascript and some experience using Typescript. I come from a background in engineering working with CAD and estimating for prototype/production in a machining & welding environment. While managing the engineering team, I initiated multiple projects to streamline our procedures and enlisted those with a programming background to increase efficiency in the department.",
+  "I began coding at the beginning of 2020 and enrolled in a coding bootcamp. I started learning HTML, CSS, and Javascript on my own via Free Code Camp, but COVID-19 put an end to all in-person bootcamps.",
+  "Fast forward to the summer of 2022... My wife and I moved to Sweden and I was looking for a new job. It was at this time I decided now was the time to commit to following the programming path I started.",
+  "I attempted to learn coding at a technical institute, but most schools require a full year of Swedish language school. I decided I could better utilize that time to teach myself programming with online resources instead. Since I began in August 2022, I have worked with HTML, CSS, Javascript, Typescript, React, C#, .NET, Node.JS, SQL, and MongoDB.",
+];
 
 export const backendSkills: SkillStackProps = {
   title: "Backend",
@@ -87,7 +98,7 @@ export const dataSkills: SkillStackProps = {
 };
 
 export const versionSkills: SkillStackProps = {
-  title: "Version Control",
+  title: "Versions",
   skillsArray: [
     {
       Icon: BiLogoGithub,

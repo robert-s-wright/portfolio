@@ -5,11 +5,14 @@ import {
   Button,
   Chip,
   ThemeProvider,
+  Modal,
+  Fade,
 } from "@mui/material";
 
 import { ProjectTileProps } from "../../Types";
 
 import { theme } from "./../../theme";
+import { useState } from "react";
 
 export const ProjectTile = ({
   setHoverState,
@@ -27,6 +30,8 @@ export const ProjectTile = ({
     link,
     languages,
   } = project;
+
+  const [modalOpen, setModalOpen] = useState<number>();
   return (
     <ThemeProvider theme={theme}>
       <Paper
@@ -70,7 +75,13 @@ export const ProjectTile = ({
               return (
                 <img
                   src={imgLink}
-                  style={{ width: "45%", aspectRatio: "auto" }}
+                  style={{
+                    width: "75%",
+                    maxWidth: "400px",
+                    aspectRatio: "auto",
+                    cursor: "pointer",
+                  }}
+                  onClick={() => setModalOpen(index)}
                 />
               );
             })}
@@ -107,12 +118,36 @@ export const ProjectTile = ({
                   size="small"
                   label={language}
                   color="primary"
+                  sx={{
+                    ".MuiChip-label": {
+                      fontSize: { xs: 11, sm: 12, md: 15, lg: 15 },
+                    },
+                  }}
                 />
               );
             })}
           </Stack>
         </Stack>
       </Paper>
+      <Modal
+        open={modalOpen !== undefined}
+        sx={{
+          "&.MuiModal-root": {
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        }}
+        onClose={() => setModalOpen(undefined)}
+        closeAfterTransition
+      >
+        <Fade in={modalOpen !== undefined}>
+          <img
+            src={imgLinks[0]}
+            style={{ alignSelf: "center", maxWidth: "90vw" }}
+          ></img>
+        </Fade>
+      </Modal>
     </ThemeProvider>
   );
 };
@@ -131,7 +166,13 @@ const RepoLinks = ({
   return (
     <Stack
       direction="row"
+      justifyContent="center"
+      alignItems="center"
       gap={1}
+      flexWrap="wrap"
+      sx={{
+        ".MuiButton-root": { fontSize: { xs: 11, sm: 12, md: 15, lg: 15 } },
+      }}
     >
       {frontendRepoLink !== undefined ? (
         <Button

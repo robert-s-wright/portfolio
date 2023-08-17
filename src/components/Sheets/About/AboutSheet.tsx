@@ -6,6 +6,8 @@ import {
   IconButton,
   Link,
   Tooltip,
+  Grid,
+  Divider,
 } from "@mui/material";
 
 import headshot from "./../../../assets/headshot.jpg";
@@ -20,6 +22,7 @@ import {
   dataSkills,
   versionSkills,
   contactLinks,
+  aboutContent,
 } from "./AboutSheetData";
 
 export const AboutSheet = () => {
@@ -31,64 +34,81 @@ export const AboutSheet = () => {
         spacing={2}
         alignItems="center"
       >
-        <Typography
-          fontFamily="Montserrat"
-          fontWeight={600}
+        <Stack
+          direction={{ sm: "column", md: "row" }}
+          spacing={{ xs: 2, sm: 2, md: 8, lg: 8 }}
+          paddingX={{ xs: 1, sm: 2, md: 6, lg: 10 }}
         >
-          I'm Robbie, a 34 year old web developer with an emphasis on React with
-          Javascript and some experience using Typescript. I come from a
-          background in engineering working with CAD and estimating for
-          prototype/production in a machining & welding environment. While
-          managing the engineering team, I initiated multiple projects to
-          streamline our procedures and enlisted those with a programming
-          background to increase efficiency in the department.
-        </Typography>
-        <Typography
-          fontFamily="Montserrat"
-          fontWeight={600}
-        >
-          I myself began coding at the beginning of 2020 and enrolled in a
-          coding bootcamp. I began learning HTML, CSS, and Javascript on my own
-          via Free Code Camp, but COVID-19 prevented me from attending the
-          instructions in person, so I did not continue.
-        </Typography>
-        <Typography
-          fontFamily="Montserrat"
-          fontWeight={600}
-        >
-          Fast forward to the summer of 2022... My wife and I moved to Sweden
-          and I was looking for a new position in manufacturing engineering, the
-          industry to which I commited the last 10 years of my life. Having
-          experienced so much stagnation within domestic factories and increased
-          offshoring of processes, I decided now was the time to commit to
-          following my programming path.
-        </Typography>
-        <Typography
-          fontFamily="Montserrat"
-          fontWeight={600}
-        >
-          I attempted to learn coding at a technical institute, but most schools
-          require a full year of Swedish language school. I decided I could
-          better utilize that time to teach myself programming with online
-          resources instead. Since I began in August 2022, I have worked with
-          HTML, CSS, Javascript, Typescript, React, C#, .NET, Node.JS, SQL, and
-          MongoDB.
-        </Typography>
+          <Stack
+            spacing={2}
+            flex={1}
+          >
+            {aboutContent.map((item, index) => {
+              if (index < 2)
+                return (
+                  <Typography
+                    fontFamily="Montserrat"
+                    fontWeight={{ xs: 400, sm: 500, md: 600 }}
+                    fontSize={{ xs: 11, sm: 15, md: 15 }}
+                    sx={{
+                      textIndent: {
+                        xs: "2em",
+                        sm: "2em",
+                        md: "4em",
+                        lg: "4em",
+                      },
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                );
+            })}
+          </Stack>
+
+          <Stack
+            spacing={2}
+            flex={1}
+          >
+            {aboutContent.map((item, index) => {
+              if (index >= 2)
+                return (
+                  <Typography
+                    fontFamily="Montserrat"
+                    fontWeight={{ xs: 400, sm: 500, md: 600 }}
+                    fontSize={{ xs: 11, sm: 15, md: 15 }}
+                    sx={{
+                      textIndent: {
+                        xs: "2em",
+                        sm: "2em",
+                        md: "4em",
+                        lg: "4em",
+                      },
+                    }}
+                  >
+                    {item}
+                  </Typography>
+                );
+            })}
+          </Stack>
+        </Stack>
+
         <Typography
           textAlign="center"
+          fontSize={{ xs: 15, sm: 16, md: 20 }}
           variant="h6"
           fontFamily="Montserrat"
-          fontWeight={700}
+          fontWeight={{ xs: 600, sm: 600, md: 700 }}
         >
           Please send me any questions or comments and I'll do my best to
           respond!
         </Typography>
         <Typography
           textAlign="center"
+          fontSize={{ xs: 15, sm: 16, md: 20 }}
           variant="subtitle1"
           fontFamily="Montserrat"
           fontStyle="italic"
-          fontWeight={700}
+          fontWeight={{ xs: 600, sm: 600, md: 700 }}
         >
           *Site under construction for better responsiveness!*
         </Typography>
@@ -104,10 +124,11 @@ export const AboutSheet = () => {
         spacing={2}
       >
         <Stack
-          direction="row"
+          direction={{ xs: "column", sm: "column", med: "row", lg: "row" }}
           justifyContent="space-between"
           width="90%"
           alignItems="center"
+          gap={2}
         >
           <Stack
             direction="row"
@@ -123,41 +144,50 @@ export const AboutSheet = () => {
             </Stack>
           </Stack>
           <Stack
-            justifyContent="flex-start"
+            direction="row"
+            gap={4}
             alignItems="center"
+            justifyContent="space-between"
           >
-            <Typography
-              variant="h6"
-              fontFamily="Montserrat"
-              fontWeight={700}
-            >
-              Contact
-            </Typography>
             <Stack
-              alignItems="flex-start"
-              gap={1}
+              justifyContent="flex-start"
+              alignItems="center"
             >
-              {contactLinks.map((obj) => {
-                return (
-                  <Link
-                    href={obj.link}
-                    target="_blank"
-                    underline="hover"
-                  >
-                    {obj.title}
-                  </Link>
-                );
-              })}
+              <Typography
+                variant="h6"
+                fontFamily="Montserrat"
+                fontWeight={700}
+                fontSize={{ xs: 16, sm: 17, md: 18, lg: 20 }}
+              >
+                Contact
+              </Typography>
+              <Stack
+                alignItems="flex-start"
+                gap={1}
+              >
+                {contactLinks.map((obj) => {
+                  return (
+                    <Link
+                      href={obj.link}
+                      target="_blank"
+                      underline="hover"
+                      fontSize={{ xs: 16, sm: 17, md: 18, lg: 20 }}
+                    >
+                      {obj.title}
+                    </Link>
+                  );
+                })}
+              </Stack>
             </Stack>
+            <Avatar
+              src={headshot}
+              sx={{
+                height: { xs: 80, sm: 100, md: 150, lg: 150 },
+                width: { xs: 80, sm: 100, md: 150, lg: 150 },
+                boxShadow: "1px 1px 5px black",
+              }}
+            />
           </Stack>
-          <Avatar
-            src={headshot}
-            sx={{
-              height: 150,
-              width: 150,
-              boxShadow: "1px 1px 5px black",
-            }}
-          />
         </Stack>
       </Stack>
     </>
@@ -171,9 +201,10 @@ const StyledIcon = ({ Icon, link, skillName }: StyledIconProps) => {
       placement="top"
     >
       <IconButton
-        children={<Icon size={30} />}
+        children={<Icon />}
         size="medium"
         sx={{
+          fontSize: { xs: 20, sm: 20, md: 30, lg: 30 },
           "&.MuiIconButton-root:hover": {
             backgroundColor: theme.palette.secondary.light,
             opacity: "60%",
@@ -193,12 +224,14 @@ const SkillStack = ({ title, skillsArray }: SkillStackProps) => {
   return (
     <Stack
       alignItems="center"
+      justifyContent="center"
       gap={1}
     >
       <Typography
         variant="h6"
         fontWeight={600}
         fontFamily="Montserrat"
+        fontSize={{ xs: 16, sm: 17, md: 18, lg: 20 }}
       >
         {title}
       </Typography>
@@ -206,6 +239,7 @@ const SkillStack = ({ title, skillsArray }: SkillStackProps) => {
         sx={{
           backgroundColor: "#F2F0EB",
           padding: 1,
+          width: "fit-content",
         }}
         elevation={5}
         square
