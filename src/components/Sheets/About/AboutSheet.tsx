@@ -6,8 +6,6 @@ import {
   IconButton,
   Link,
   Tooltip,
-  Grid,
-  Divider,
 } from "@mui/material";
 
 import headshot from "./../../../assets/headshot.jpg";
@@ -101,16 +99,6 @@ export const AboutSheet = () => {
         >
           Please send me any questions or comments and I'll do my best to
           respond!
-        </Typography>
-        <Typography
-          textAlign="center"
-          fontSize={{ xs: 15, sm: 16, md: 20 }}
-          variant="subtitle1"
-          fontFamily="Montserrat"
-          fontStyle="italic"
-          fontWeight={{ xs: 600, sm: 600, md: 700 }}
-        >
-          *Site under construction for better responsiveness!*
         </Typography>
       </Stack>
       <Stack
