@@ -23,7 +23,7 @@ export const Body = ({ selectedTab, setSelectedTab, headerRef }: BodyProps) => {
         backgroundColor: theme.palette.secondary.dark,
         position: "relative",
         marginTop:
-          headerRef.current !== null ? headerRef.current.offsetHeight : 0,
+          headerRef.current !== null ? headerRef.current.offsetHeight : 64,
         minHeight: "70%",
       }}
     >

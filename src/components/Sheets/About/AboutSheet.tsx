@@ -45,6 +45,7 @@ export const AboutSheet = () => {
               if (index < 2)
                 return (
                   <Typography
+                    key={index}
                     fontFamily="Montserrat"
                     fontWeight={{ xs: 400, sm: 500, md: 600 }}
                     fontSize={{ xs: 11, sm: 15, md: 15 }}
@@ -71,6 +72,7 @@ export const AboutSheet = () => {
               if (index >= 2)
                 return (
                   <Typography
+                    key={index}
                     fontFamily="Montserrat"
                     fontWeight={{ xs: 400, sm: 500, md: 600 }}
                     fontSize={{ xs: 11, sm: 15, md: 15 }}
@@ -156,6 +158,7 @@ export const AboutSheet = () => {
                 {contactLinks.map((obj) => {
                   return (
                     <Link
+                      key={obj.link}
                       href={obj.link}
                       target="_blank"
                       underline="hover"

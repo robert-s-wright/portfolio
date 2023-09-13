@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 
 import { Stack, Tabs, Tab, ThemeProvider } from "@mui/material";
 
@@ -38,7 +38,6 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
           zIndex={10}
           ref={ref}
         >
-          {/* <div>Logo</div> */}
           <Stack padding={1}>
             <Tabs
               onChange={handleChange}
@@ -50,7 +49,6 @@ export const Header = forwardRef<HTMLDivElement, HeaderProps>(
                   backgroundColor: theme.palette.primary.light,
                   opacity: "10%",
                   border: `2px solid ${theme.palette.primary.dark} `,
-                  // boxShadow: `0px 1px 1px 1px ${theme.palette.secondary.light}, 0px 1px 1px 1px ${theme.palette.secondary.light}, 0px 1px 1px 1px ${theme.palette.secondary.light}`,
                 },
               }}
             >

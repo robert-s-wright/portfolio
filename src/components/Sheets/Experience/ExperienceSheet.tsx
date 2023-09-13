@@ -6,6 +6,8 @@ import { ProjectTile } from "./ProjectTile";
 
 import { projects } from "./Projects";
 
+import styles from "./ExperienceSheet.module.css";
+
 export const ExperienceSheet = () => {
   const [hoveredProject, setHoveredProject] = useState<number | undefined>(
     undefined
@@ -17,14 +19,14 @@ export const ExperienceSheet = () => {
       textAlign="justify"
       spacing={2}
       rowGap={2}
-      justifyContent="space-evenly"
-      alignItems={{ sm: "center", md: "flex-start" }}
-      direction={{ sm: "column", md: "row" }}
-      flexWrap="wrap"
+      justifyContent="space-between"
+      alignItems="center"
+      direction={{ sm: "column", md: "column", lg: "row", xl: "row" }}
     >
       {projects.map((project, ind) => {
         return (
           <ProjectTile
+            key={ind}
             setHoverState={setHoveredProject}
             hoveredProject={hoveredProject}
             index={ind}

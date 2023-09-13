@@ -36,9 +36,11 @@ export const ProjectTile = ({
     <ThemeProvider theme={theme}>
       <Paper
         sx={{
-          width: { sm: "80%", md: "45%" },
+          width: { xs: "90%", sm: "80%", md: "80%", lg: "40%" },
           position: "relative",
           overflow: "hidden",
+          maxHeight: "60%",
+          transition: "width .2s ease",
         }}
         onMouseEnter={() => setHoverState(index)}
         onMouseLeave={() => setHoverState(undefined)}
@@ -74,10 +76,11 @@ export const ProjectTile = ({
             {imgLinks.map((imgLink) => {
               return (
                 <img
+                  key={imgLink}
                   src={imgLink}
                   style={{
                     width: "75%",
-                    maxWidth: "400px",
+                    maxWidth: "600px",
                     aspectRatio: "auto",
                     cursor: "pointer",
                   }}
@@ -115,6 +118,7 @@ export const ProjectTile = ({
             {languages.map((language) => {
               return (
                 <Chip
+                  key={language}
                   size="small"
                   label={language}
                   color="primary"
@@ -171,7 +175,7 @@ const RepoLinks = ({
       gap={1}
       flexWrap="wrap"
       sx={{
-        ".MuiButton-root": { fontSize: { xs: 11, sm: 12, md: 15, lg: 15 } },
+        ".MuiButton-root": { fontSize: { xs: 11, sm: 12, md: 13, lg: 12 } },
       }}
     >
       {frontendRepoLink !== undefined ? (

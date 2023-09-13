@@ -2,6 +2,17 @@ import { ProjectProps } from "../../Types";
 
 export const projects: ProjectProps[] = [
   {
+    title: "FileDropper",
+    subTitle:
+      "An application to allow users to upload and retrieve files from a server.",
+    imgLinks: ["./assets/Experience/filedropper.PNG"],
+    description:
+      " Utilizes a Typescript/React frontend, .NET backend, and SQL database. This was a fun project, and my first handling files being over HTTP. Users can upload files, download files that have been saved, and receive errors if the file already exists. Methods exists to either transmit the files as byte arrays or as a stream.",
+    languages: ["Typescript", "React", "MUI", "C#", "Dapper", "SQL"],
+    frontendRepoLink: "https://github.com/robert-s-wright/filedropper",
+    backendRepoLink: "https://github.com/robert-s-wright/filedropper-api",
+  },
+  {
     title: "Rebelz Sizing Guide",
     subTitle:
       "An application to gather customer feedback and determine sizing differences between brands based on customer measurements.",
@@ -10,7 +21,7 @@ export const projects: ProjectProps[] = [
       // "./assets/Experience/sizingGuideAdminPanel.PNG",
     ],
     description:
-      " Utilizes a Javascript/React frontend, .NET backend, and SQL database. This was my first project creating a backend with .NET, and it was a great lesson in utilizing an ORM and best practices writing API endpoints. The backend consists of Domain, Application, Infrastructure, and Presentation layers for separation of concerns.  ",
+      " Utilizes a Javascript/React frontend, .NET backend, and SQL database. This was my first project creating a backend with .NET, and it was a great lesson in utilizing an ORM and best practices writing API endpoints. The backend consists of Domain, Application, Infrastructure, and Presentation layers for separation of concerns.",
     languages: ["Javascript", "React", "MUI", "C#", "Dapper", "SQL"],
     frontendRepoLink:
       "https://github.com/robert-s-wright/rebelz-sizing-guide-interface",
